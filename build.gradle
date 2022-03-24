@@ -19,6 +19,8 @@ repositories {
 }
 
 dependencies {
+	testImplementation group: 'org.testng', name: 'testng', version: '7.5'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework:spring-orm:5.3.16'
 	implementation 'org.projectlombok:lombok:1.18.22'
@@ -36,6 +38,10 @@ dependencies {
 	testImplementation 'org.postgresql:postgresql:42.3.3'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+test {
+	useTestNG()
 }
+
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
