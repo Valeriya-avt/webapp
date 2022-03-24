@@ -8,6 +8,7 @@ public interface ShoppingCartDao {
     void createShoppingCart(ShoppingCart shoppingCart);
     void updateShoppingCart(ShoppingCart shoppingCart);
     void deleteShoppingCart(ShoppingCart shoppingCart);
+    ShoppingCart getShoppingCartById(int id);
     List<ShoppingCart> getShoppingCartsByOrderId(Order order);
     double getShoppingCartPrice(ShoppingCart shoppingCart);
 }
