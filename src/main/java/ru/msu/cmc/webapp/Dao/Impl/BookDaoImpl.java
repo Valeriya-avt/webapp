@@ -1,13 +1,13 @@
 package ru.msu.cmc.webapp.Dao.Impl;
 
-import ru.msu.cmc.webapp.Models.Book;
-import ru.msu.cmc.webapp.Dao.BookDao;
-import ru.msu.cmc.webapp.Utils.HibernateUtil;
-
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import ru.msu.cmc.webapp.Dao.BookDao;
+import ru.msu.cmc.webapp.Models.Book;
+import ru.msu.cmc.webapp.Utils.HibernateUtil;
+
+import java.util.List;
 
 public class BookDaoImpl implements BookDao {
     @Override
@@ -51,7 +51,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public Book readBookByID(int id) {
+    public Book getBookByID(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query<Book> query = session.createQuery("FROM Book WHERE book_id =: id", Book.class).setParameter("id", id);
         if (query.getResultList().size() == 0) {
@@ -89,7 +89,7 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public List<Book> getBooksByPublishingYear(String publishing_year) {
+    public List<Book> getBooksByPublishingYear(int publishing_year) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query<Book> query = session.createQuery("FROM Book WHERE publishing_year =: publishing_year", Book.class).setParameter("publishing_year", publishing_year);
         return query.getResultList();

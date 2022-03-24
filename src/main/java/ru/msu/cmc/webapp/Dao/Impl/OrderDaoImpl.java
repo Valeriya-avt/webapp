@@ -1,19 +1,18 @@
 package ru.msu.cmc.webapp.Dao.Impl;
 
-import ru.msu.cmc.webapp.Models.Client;
-import ru.msu.cmc.webapp.Models.Order;
-import ru.msu.cmc.webapp.Dao.OrderDao;
-import ru.msu.cmc.webapp.Utils.HibernateUtil;
-
-import java.util.List;
-import javax.persistence.criteria.CriteriaQuery;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import ru.msu.cmc.webapp.Dao.OrderDao;
+import ru.msu.cmc.webapp.Models.Client;
+import ru.msu.cmc.webapp.Models.Order;
+import ru.msu.cmc.webapp.Utils.HibernateUtil;
+
+import javax.persistence.criteria.CriteriaQuery;
+import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
-    @Override
+//    @Override
     public void createOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -26,7 +25,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    @Override
+//    @Override
     public void updateOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -39,7 +38,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    @Override
+//    @Override
     public void deleteOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -66,7 +65,7 @@ public class OrderDaoImpl implements OrderDao {
     @Override
     public List<Order> getOrdersByClientId(Client client) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query<Order> query = session.createQuery("FROM Order WHERE client_id = :param", Order.class).setParameter("param", client.getClient_id());
+        Query<Order> query = session.createQuery("FROM Order WHERE client_id =: param", Order.class).setParameter("param", client);
         if (query.getResultList().size() == 0) {
             return null;
         }

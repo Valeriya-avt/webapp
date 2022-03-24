@@ -1,16 +1,14 @@
 package ru.msu.cmc.webapp.Dao.Impl;
 
-import ru.msu.cmc.webapp.Models.ShoppingCart;
-import ru.msu.cmc.webapp.Models.Order;
-import ru.msu.cmc.webapp.Dao.ShoppingCartDao;
-import ru.msu.cmc.webapp.Utils.HibernateUtil;
-
-import java.util.List;
-import javax.persistence.criteria.CriteriaQuery;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import ru.msu.cmc.webapp.Dao.ShoppingCartDao;
+import ru.msu.cmc.webapp.Models.Order;
+import ru.msu.cmc.webapp.Models.ShoppingCart;
+import ru.msu.cmc.webapp.Utils.HibernateUtil;
+
+import java.util.List;
 
 public class ShoppingCartDaoImpl implements ShoppingCartDao {
     public void createShoppingCart(ShoppingCart shoppingCart) {
@@ -45,6 +43,15 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
         } catch (Exception e) {
             System.out.println("deleteShoppingCart Exception: " + e.getMessage());
         }
+    }
+    @Override
+    public ShoppingCart getShoppingCartById(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query<ShoppingCart> query = session.createQuery("FROM ShoppingCart WHERE shopping_cart_id =: id", ShoppingCart.class).setParameter("id", id);
+        if (query.getResultList().size() == 0) {
+            return null;
+        }
+        return query.getResultList().get(0);
     }
     public List<ShoppingCart> getShoppingCartsByOrderId(Order order) {
         Session session = HibernateUtil.getSessionFactory().openSession();
