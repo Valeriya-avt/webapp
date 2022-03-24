@@ -1,6 +1,7 @@
 package ru.msu.cmc.webapp.Models;
 
 import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 
 public class Book {
     @Id
@@ -48,4 +50,7 @@ public class Book {
 
     @Column(nullable = false, name = "amount")
     private int amount;
+
+//    @OneToMany(fetch=FetchType.LAZY, mappedBy = "books")
+//    protected List<ShoppingCart> dutyFreeShops;
 }

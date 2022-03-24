@@ -1,6 +1,7 @@
 package ru.msu.cmc.webapp.Models;
 
 import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 
 public class Client {
     @Id
@@ -44,4 +46,9 @@ public class Client {
     @Column(nullable = false, name = "client_password")
     @NonNull
     private String client_password;
+
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(client_id, name, surname, address, phone_number, email, client_login, client_password);
+//    }
 }

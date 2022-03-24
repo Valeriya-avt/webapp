@@ -10,6 +10,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 
 public class ShoppingCart {
     @Id
@@ -20,7 +21,6 @@ public class ShoppingCart {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     @ToString.Exclude
-//    @Column(nullable = false, name = "order_id")
     @NonNull
     private Order order_id;
 
