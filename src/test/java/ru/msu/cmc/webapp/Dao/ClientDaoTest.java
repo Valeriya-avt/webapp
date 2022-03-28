@@ -45,6 +45,7 @@ public class ClientDaoTest {
         Client client = new Client("Василий", "Иванов", "Россия, г. Зеленогорск, 3-й Лесной пер., 5", "+79007387094", "vivanov@gmail.com", "VIvanov", "erbof789uh");
         clientDao.createClient(client);
         Assert.assertEquals("VIvanov", clientDao.getClientByID(client.getClient_id()).getClient_login());
+        assertThat(clientDao.getClientByLogin("VIvanov")).usingRecursiveComparison().isEqualTo(client);
         clientDao.deleteClient(client);
     }
 

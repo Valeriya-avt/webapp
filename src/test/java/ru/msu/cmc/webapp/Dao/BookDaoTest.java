@@ -14,7 +14,7 @@ public class BookDaoTest {
 
     @Test
     public void testCreateBook() {
-        Book book = new Book(3004, "Дюна", "Фрэнк Герберт", "Фантастика", "АСТ", 2008, 736, "Твёрдый переплёт", 2700, 4);
+        Book book = new Book(3004,"Дюна", "Фрэнк Герберт", "Фантастика", "АСТ", 2008, 736, "Твёрдый переплёт", 2700, 4);
         bookDao.createBook(book);
         assertThat(bookDao.getBookByID(book.getBook_id())).usingRecursiveComparison().isEqualTo(book);
         bookDao.deleteBook(book);
@@ -103,7 +103,7 @@ public class BookDaoTest {
     public void testGetBookPrice() {
         Book book = new Book(3004,"Дюна", "Фрэнк Герберт", "Фантастика", "АСТ", 2008, 736, "Твёрдый переплёт", 2700, 4);
         bookDao.createBook(book);
-        Assert.assertEquals(book.getPrice(), bookDao.getBookByID(book.getBook_id()).getPrice());
+        Assert.assertEquals(book.getPrice(), bookDao.getBookPrice(book));
         bookDao.deleteBook(book);
     }
 
@@ -111,7 +111,7 @@ public class BookDaoTest {
     public void testGetBookAmount() {
         Book book = new Book(3004,"Дюна", "Фрэнк Герберт", "Фантастика", "АСТ", 2008, 736, "Твёрдый переплёт", 2700, 4);
         bookDao.createBook(book);
-        Assert.assertEquals(book.getAmount(), bookDao.getBookByID(book.getBook_id()).getAmount());
+        Assert.assertEquals(book.getAmount(), bookDao.getBookAmount(book));
         bookDao.deleteBook(book);
     }
 }

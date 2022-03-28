@@ -58,7 +58,7 @@ public class OrderDaoTest {
                 new Order(client, java.sql.Date.valueOf("2022-02-01"), java.sql.Date.valueOf("2022-02-24"), "processed"),
                 new Order(client, java.sql.Date.valueOf("2022-02-23"), java.sql.Date.valueOf("2022-02-25"), "processed"),
                 new Order(client, java.sql.Date.valueOf("2022-02-25"), java.sql.Date.valueOf("2022-02-26"), "processed")
-         );
+        );
         orderDao.createOrder(expectedOrders.get(0));
         orderDao.createOrder(expectedOrders.get(1));
         orderDao.createOrder(expectedOrders.get(2));
