@@ -19,7 +19,7 @@ public class BookDaoImpl implements BookDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("createBook Exception: " + e.getMessage());
+//            System.out.println("createBook Exception: " + e.getMessage());
         }
     }
 
@@ -32,7 +32,7 @@ public class BookDaoImpl implements BookDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("updateBook Exception: " + e.getMessage());
+//            System.out.println("updateBook Exception: " + e.getMessage());
         }
 
     }
@@ -46,7 +46,7 @@ public class BookDaoImpl implements BookDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("deleteBook Exception: " + e.getMessage());
+//            System.out.println("deleteBook Exception: " + e.getMessage());
         }
     }
 

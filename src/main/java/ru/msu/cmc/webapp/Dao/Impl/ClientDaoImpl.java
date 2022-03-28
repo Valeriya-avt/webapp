@@ -1,13 +1,13 @@
 package ru.msu.cmc.webapp.Dao.Impl;
 
-import ru.msu.cmc.webapp.Models.Client;
-import ru.msu.cmc.webapp.Dao.ClientDao;
-import ru.msu.cmc.webapp.Utils.HibernateUtil;
-
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import ru.msu.cmc.webapp.Dao.ClientDao;
+import ru.msu.cmc.webapp.Models.Client;
+import ru.msu.cmc.webapp.Utils.HibernateUtil;
+
+import java.util.List;
 
 public class ClientDaoImpl implements ClientDao {
     @Override
@@ -19,7 +19,7 @@ public class ClientDaoImpl implements ClientDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("createClient Exception: " + e.getMessage());
+//            System.out.println("createClient Exception: " + e.getMessage());
         }
     }
 
@@ -32,7 +32,7 @@ public class ClientDaoImpl implements ClientDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("updateClient Exception: " + e.getMessage());
+//            System.out.println("updateClient Exception: " + e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class ClientDaoImpl implements ClientDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("deleteClient Exception: " + e.getMessage());
+//            System.out.println("deleteClient Exception: " + e.getMessage());
         }
     }
 

@@ -55,7 +55,7 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     }
     public List<ShoppingCart> getShoppingCartsByOrderId(Order order) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query<ShoppingCart> query = session.createQuery("FROM ShoppingCart WHERE order_id =: order_id", ShoppingCart.class).setParameter("order_id", order.getOrder_id());
+        Query<ShoppingCart> query = session.createQuery("FROM ShoppingCart WHERE order_id =: order_id", ShoppingCart.class).setParameter("order_id", order);
         if (query.getResultList().size() == 0) {
             return null;
         }

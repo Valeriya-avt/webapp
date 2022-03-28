@@ -18,7 +18,7 @@ public class AdminDaoImpl implements AdminDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("createAdmin Exception: " + e.getMessage());
+//            System.out.println("createAdmin Exception: " + e.getMessage());
         }
 
     }
@@ -32,7 +32,7 @@ public class AdminDaoImpl implements AdminDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("updateAdmin Exception: " + e.getMessage());
+//            System.out.println("updateAdmin Exception: " + e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class AdminDaoImpl implements AdminDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("deleteAdmin Exception: " + e.getMessage());
+//            System.out.println("deleteAdmin Exception: " + e.getMessage());
         }
     }
 
@@ -60,7 +60,7 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public Admin getAdminByLogin(String login) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query<Admin> query = session.createQuery("FROM Admin WHERE admin_login =: login", Admin.class).setParameter("login", login);
+        Query<Admin> query = session.createQuery("FROM Admin WHERE admin_login =: param", Admin.class).setParameter("param", login);
         if (query.getResultList().size() == 0) {
             return null;
         }

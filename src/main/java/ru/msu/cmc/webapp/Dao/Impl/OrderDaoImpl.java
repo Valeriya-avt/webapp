@@ -12,7 +12,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
-//    @Override
     public void createOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -21,11 +20,10 @@ public class OrderDaoImpl implements OrderDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("createOrder Exception: " + e.getMessage());
+//            System.out.println("createOrder Exception: " + e.getMessage());
         }
     }
 
-//    @Override
     public void updateOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -34,11 +32,10 @@ public class OrderDaoImpl implements OrderDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("updateOrder Exception: " + e.getMessage());
+//            System.out.println("updateOrder Exception: " + e.getMessage());
         }
     }
 
-//    @Override
     public void deleteOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -47,7 +44,7 @@ public class OrderDaoImpl implements OrderDao {
             transaction.commit();
             session.close();
         } catch (Exception e) {
-            System.out.println("deleteOrder Exception: " + e.getMessage());
+//            System.out.println("deleteOrder Exception: " + e.getMessage());
         }
 
     }
