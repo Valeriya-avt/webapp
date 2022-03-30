@@ -11,5 +11,5 @@ public interface OrderDao {
     void deleteOrder(Order order);
     Order getOrderByID(int id);
     List<Order> getOrdersByClientId(Client client);
-    List<Order> readAllOrders();
+    List<Order> getAllOrders();
 }

@@ -70,7 +70,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     @Override
-    public List<Order> readAllOrders() {
+    public List<Order> getAllOrders() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         CriteriaQuery<Order> criteriaQuery = session.getCriteriaBuilder().createQuery(Order.class);
         criteriaQuery.from(Order.class);
