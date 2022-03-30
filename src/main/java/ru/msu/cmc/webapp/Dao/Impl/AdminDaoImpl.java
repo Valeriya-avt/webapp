@@ -17,7 +17,7 @@ public class AdminDaoImpl implements AdminDao {
             session.save(admin);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("createAdmin Exception: " + e.getMessage());
         }
 
@@ -31,7 +31,7 @@ public class AdminDaoImpl implements AdminDao {
             session.update(admin);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("updateAdmin Exception: " + e.getMessage());
         }
     }
@@ -44,7 +44,7 @@ public class AdminDaoImpl implements AdminDao {
             session.delete(admin);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("deleteAdmin Exception: " + e.getMessage());
         }
     }

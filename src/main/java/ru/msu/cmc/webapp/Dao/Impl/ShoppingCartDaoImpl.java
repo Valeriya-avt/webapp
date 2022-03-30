@@ -18,8 +18,8 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
             session.save(shoppingCart);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
-            System.out.println("createShoppingCart Exception: " + e.getMessage());
+        } finally {
+//            System.out.println("createShoppingCart Exception: " + e.getMessage());
         }
     }
     public void updateShoppingCart(ShoppingCart shoppingCart) {
@@ -29,8 +29,8 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
             session.update(shoppingCart);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
-            System.out.println("updateShoppingCart Exception: " + e.getMessage());
+        } finally {
+//            System.out.println("updateShoppingCart Exception: " + e.getMessage());
         }
     }
     public void deleteShoppingCart(ShoppingCart shoppingCart) {
@@ -40,8 +40,8 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
             session.delete(shoppingCart);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
-            System.out.println("deleteShoppingCart Exception: " + e.getMessage());
+        } finally {
+//            System.out.println("deleteShoppingCart Exception: " + e.getMessage());
         }
     }
     @Override

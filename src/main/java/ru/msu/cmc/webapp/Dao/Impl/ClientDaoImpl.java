@@ -18,7 +18,7 @@ public class ClientDaoImpl implements ClientDao {
             session.save(client);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("createClient Exception: " + e.getMessage());
         }
     }
@@ -31,7 +31,7 @@ public class ClientDaoImpl implements ClientDao {
             session.update(client);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("updateClient Exception: " + e.getMessage());
         }
     }
@@ -44,7 +44,7 @@ public class ClientDaoImpl implements ClientDao {
             session.delete(client);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("deleteClient Exception: " + e.getMessage());
         }
     }

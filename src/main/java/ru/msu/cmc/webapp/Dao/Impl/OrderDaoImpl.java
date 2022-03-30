@@ -19,7 +19,7 @@ public class OrderDaoImpl implements OrderDao {
             session.save(order);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("createOrder Exception: " + e.getMessage());
         }
     }
@@ -31,7 +31,7 @@ public class OrderDaoImpl implements OrderDao {
             session.update(order);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("updateOrder Exception: " + e.getMessage());
         }
     }
@@ -43,7 +43,7 @@ public class OrderDaoImpl implements OrderDao {
             session.delete(order);
             transaction.commit();
             session.close();
-        } catch (Exception e) {
+        } finally {
 //            System.out.println("deleteOrder Exception: " + e.getMessage());
         }
 
