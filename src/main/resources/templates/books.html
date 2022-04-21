@@ -35,34 +35,28 @@
   </div>
 </nav>
 
-<div class="row" >
-  <div class="table-responsive col-md-6">
-    <table class="table table-bordered " style="width: auto; margin: auto; border: 1.09px solid blue;  text-align: center;">
-      <thead class="thead-ligth">
-      <tr>
-        <th scope="col"> Название </th>
-        <th scope="col"> Автор </th>
-        <th scope="col"> Цена </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:if="${books.isEmpty()}">
-        <td colspan="8"> Каталог пуст </td>
-      </tr>
-      <tr th:each="book : ${books}">
-
-        <form>
-          <input type="hidden" name="index_book_id" th:value="${book.getBook_id()}"/>
-        </form>
-
-        <td> <a th:href="'/book?book_id=' + ${book.getBook_id()}"> <span th:text="${book.getTitle()}"> </span> </a></td>
-        <td><span th:text="${book.getAuthors()}"> </span></td>
-        <td><span th:text="${book.getPrice()}"> </span></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<table class="table table-bordered " style="margin: 0 auto; border: solid 2px blue;">
+  <thead class="thead-ligth">
+  <tr>
+    <th scope="col"> Название </th>
+    <th scope="col"> Автор </th>
+    <th scope="col"> Цена </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${books.isEmpty()}">
+    <td colspan="8"> Каталог пуст </td>
+  </tr>
+  <tr th:each="book : ${books}">
+    <form>
+      <input type="hidden" name="index_book_id" th:value="${book.getBook_id()}"/>
+    </form>
+    <td> <a th:href="'/book?book_id=' + ${book.getBook_id()}"> <span th:text="${book.getTitle()}"> </span> </a></td>
+    <td><span th:text="${book.getAuthors()}"> </span></td>
+    <td><span th:text="${book.getPrice()}"> </span></td>
+  </tr>
+  </tbody>
+</table>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
