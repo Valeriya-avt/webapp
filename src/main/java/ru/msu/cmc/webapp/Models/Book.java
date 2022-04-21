@@ -51,6 +51,17 @@ public class Book {
     @Column(nullable = false, name = "amount")
     private int amount;
 
+    public Book(String title, String authors, String genre, String publishing_house, int publishing_year, int num_of_pages, String cover_type, Double price, int amount) {
+        this.title = title;
+        this.authors = authors;
+        this.publishing_house = publishing_house;
+        this.publishing_year = publishing_year;
+        this.num_of_pages = num_of_pages;
+        this.cover_type = cover_type;
+        this.price = price;
+        this.amount = amount;
+    }
+
 //    @OneToMany(fetch=FetchType.LAZY, mappedBy = "books")
 //    protected List<ShoppingCart> dutyFreeShops;
 }
