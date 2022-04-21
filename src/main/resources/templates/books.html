@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Bookstore</title>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Bookstore</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Войти</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Зарегистрироваться</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+    </form>
+  </div>
+</nav>
+
+<div class="row" >
+  <div class="table-responsive col-md-6">
+    <table class="table table-bordered " style="width: auto; margin: auto; border: 1.09px solid blue;  text-align: center;">
+      <thead class="thead-ligth">
+      <tr>
+        <th scope="col"> Название </th>
+        <th scope="col"> Автор </th>
+        <th scope="col"> Цена </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:if="${books.isEmpty()}">
+        <td colspan="8"> Каталог пуст </td>
+      </tr>
+      <tr th:each="book : ${books}">
+
+        <form>
+          <input type="hidden" name="index_book_id" th:value="${book.getBook_id()}"/>
+        </form>
+
+        <td> <a th:href="'/book?book_id=' + ${book.getBook_id()}"> <span th:text="${book.getTitle()}"> </span> </a></td>
+        <td><span th:text="${book.getAuthors()}"> </span></td>
+        <td><span th:text="${book.getPrice()}"> </span></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

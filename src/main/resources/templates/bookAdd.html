@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Bookstore</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Bookstore</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+    </form>
+  </div>
+</nav>
+<br>
+
+<form method="post">
+  <div class="col-md-5 mx-auto">
+    <label for="validationBookTitle" class="form-label">Название</label>
+    <input type="text" class="form-control" name="title" id="validationBookTitle" required placeholder="Название">
+    <label for="validationBookAuthor" class="form-label">Автор</label>
+    <input type="text" class="form-control" id="validationBookAuthor" name="author" required placeholder="Автор">
+    <label for="validationBookGenre" class="form-label">Жанр</label>
+    <input type="text" class="form-control" id="validationBookGenre" name="genre" required placeholder="Жанр">
+    <label for="validationBookPubHouse" class="form-label">Издательство</label>
+    <input type="text" class="form-control" id="validationBookPubHouse" name="pub_house" required placeholder="Издательство">
+    <label for="validationBookYear" class="form-label">Год издания</label>
+    <input type="text" class="form-control" id="validationBookYear" name="year" required placeholder="Год издания">
+    <label for="validationNumOfPages" class="form-label">Количество страниц</label>
+    <input type="text" class="form-control" id="validationNumOfPages" name="num_of_pages" required placeholder="Количество страниц">
+    <label for="validationCoverType" class="form-label">Тип обложки</label>
+    <input type="text" class="form-control" id="validationCoverType" name="cover_type" required placeholder="Тип обложки">
+    <label for="validationBookPrice" class="form-label">Цена</label>
+    <input type="text" class="form-control" id="validationBookPrice" name="price" required placeholder="Цена">
+    <label for="validationAmount" class="form-label">Количество</label>
+    <input type="text" class="form-control" id="validationAmount" name="amount" required placeholder="Количество">
+  </div>
+
+  <br>
+  <div class="col-md-5 mx-auto">
+    <button id="add_book_button" type="submit" class="btn btn-outline-success my-2 my-sm-0">Добавить</button>
+  </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
