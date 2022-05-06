@@ -9,5 +9,4 @@ public class RootPageController {
     public String indexPage() {
         return "index";
     }
-
 }
