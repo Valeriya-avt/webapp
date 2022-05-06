@@ -12,6 +12,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
+    @Override
     public void createOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -24,6 +25,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
+    @Override
     public void updateOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -36,6 +38,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
+    @Override
     public void deleteOrder(Order order) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();

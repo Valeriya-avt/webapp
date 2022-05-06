@@ -12,4 +12,5 @@ public interface OrderDao {
     Order getOrderByID(int id);
     List<Order> getOrdersByClientId(Client client);
     List<Order> getAllOrders();
+//    List<Order> getOpenOrders();
 }

@@ -36,6 +36,12 @@ public class ShoppingCart {
     @Column(nullable = false, name = "amount")
     private int amount;
 
+    public ShoppingCart(Order order, Book book, int amount) {
+        this.order_id = order;
+        this.book_id = book;
+        this.amount = amount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

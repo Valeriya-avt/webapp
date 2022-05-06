@@ -47,8 +47,19 @@ public class Client {
     @NonNull
     private String client_password;
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(client_id, name, surname, address, phone_number, email, client_login, client_password);
-//    }
+    @Override
+    public boolean equals(Object object) {
+        if (object == null || object.getClass() != this.getClass()) {
+            return false;
+        }
+        Client client = (Client) object;
+        return client_id == client.client_id &&
+                name.equals(client.name) &&
+                surname.equals(client.surname) &&
+                address.equals(client.address) &&
+                phone_number.equals(client.phone_number) &&
+                email.equals(client.email) &&
+                client_login.equals(client.client_login) &&
+                client_password.equals(client.client_password);
+    }
 }
