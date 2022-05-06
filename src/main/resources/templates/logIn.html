@@ -1,19 +1,18 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <!-- Required meta tags -->
-    <title>Book for client page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Book for client page</title>
+    <title>Log in page</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" id="book_for_client_bookstore_page" href="/index">Bookstore</a>
+    <a class="navbar-brand" id="log_in_bookstore_button" href="/index">Bookstore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,7 +22,10 @@
                 <a class="nav-link" href="/books">Главная <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a href="/logOut" class="nav-link" role="button">Выйти</a>
+                <a class="nav-link" href="/logIn">Войти</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="/registration">Зарегистрироваться</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/search" method="post">
@@ -32,53 +34,31 @@
         </form>
     </div>
 </nav>
-<table id="bookForClientTable" class="table table-bordered " style="margin: 0 auto; border: solid 2px blue; background-color: hsl(240, 100%, 98%)">
-    <tbody>
-    <tr>
-        <td>Название</td>
-        <td><span th:text="${book.getTitle()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Автор</td>
-        <td><span th:text="${book.getAuthors()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Жанр</td>
-        <td><span th:text="${book.getGenre()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Издательство</td>
-        <td><span th:text="${book.getPublishing_house()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Год издания</td>
-        <td><span th:text="${book.getPublishing_year()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Количество страниц</td>
-        <td><span th:text="${book.getNum_of_pages()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Тип обложки</td>
-        <td><span th:text="${book.getCover_type()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Цена</td>
-        <td><span th:text="${book.getPrice()}"> </span></td>
-    </tr>
-    <tr>
-        <td>Количество</td>
-        <td><span th:text="${book.getAmount()}"> </span></td>
-    </tr>
+<br>
 
-    </tbody>
-</table>
-<div>
-    <a class="btn btn-primary" id="add_book_to_shopping_cart_button" th:href="'/createShoppingCart?book_id=' + ${book.getBook_id()}" role="button">В корзину</a>
-</div>
+<blockquote class="blockquote text-center">
+    <h1 class="display-5">Введите учётные данные</h1>
+</blockquote>
+
+<form action="/identification" method="post">
+    <div class="mx-auto">
+        <div class="col-md-4 mx-auto">
+        <label for="log_in_client_login" class="form-label">Логин</label>
+        <input type="text" class="form-control" id="log_in_client_login" name="login" required placeholder="Логин">
+        <label for="log_in_client_password" class="form-label">Пароль</label>
+        <input type="text" class="form-control" id="log_in_client_password" name="password" required placeholder="Пароль">
+    </div>
+
+    <br>
+    <div class="col-md-4 mx-auto">
+        <button id="log_in_button" type="submit" class="btn btn-outline-success my-2 my-sm-1">ОК</button>
+    </div>
+    </div>
+</form>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>

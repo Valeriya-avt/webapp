@@ -8,11 +8,11 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <title>Bookstore</title>
+  <title>Error page</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Bookstore</a>
+  <a class="navbar-brand" id="error_page_bookstore_button" href="/index">Bookstore</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,6 +20,7 @@
 
 <blockquote class="blockquote text-center">
   <h1 class="display-1">Error</h1>
+  <h1 class="display-2"> <span th:text="${error_msg}"> </span></h1>
 </blockquote>
 <br><br>
 

@@ -1,27 +1,39 @@
 <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <!-- Required meta tags -->
-    <title>Book for client page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Book for client page</title>
+    <title>Create book page</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" id="book_for_client_bookstore_page" href="/index">Bookstore</a>
+    <a class="navbar-brand" id="create_book_bookstore_button" href="/index">Bookstore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/books">Главная <span class="sr-only">(current)</span></a>
+                <a id="admin_root_page_button" href="/logged" class="nav-link" role="button">Главная</a>
             </li>
+<!--            <li class="nav-item">-->
+<!--                <a href="/orders" class="nav-link" role="button">Заказы</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a href="/clients" class="nav-link" role="button">Пользователи</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a id="admin_add_book_button" href="/createBook" class="nav-link" role="button">Добавить книгу</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a id="admin_add_client_button" href="/addClient" class="nav-link" role="button">Создать пользователя</a>-->
+<!--            </li>-->
             <li class="nav-item">
                 <a href="/logOut" class="nav-link" role="button">Выйти</a>
             </li>
@@ -32,53 +44,58 @@
         </form>
     </div>
 </nav>
-<table id="bookForClientTable" class="table table-bordered " style="margin: 0 auto; border: solid 2px blue; background-color: hsl(240, 100%, 98%)">
+<br>
+
+<form id="form" th:action="'/addBook'" method="post"></form>
+<table class="table table-bordered" id="create_book_table" style="margin: 0 auto; border: solid 2px blue; background-color: hsl(240, 100%, 98%)">
     <tbody>
     <tr>
         <td>Название</td>
-        <td><span th:text="${book.getTitle()}"> </span></td>
+        <td><input id="title" name="title" form="form"> </td>
     </tr>
     <tr>
         <td>Автор</td>
-        <td><span th:text="${book.getAuthors()}"> </span></td>
+        <td><input id="authors" name="authors" form="form"> </td>
     </tr>
     <tr>
         <td>Жанр</td>
-        <td><span th:text="${book.getGenre()}"> </span></td>
+        <td><input id="genre" name="genre" form="form"> </td>
     </tr>
     <tr>
         <td>Издательство</td>
-        <td><span th:text="${book.getPublishing_house()}"> </span></td>
+        <td><input id="publishing_house" name="publishing_house" form="form"> </td>
     </tr>
     <tr>
         <td>Год издания</td>
-        <td><span th:text="${book.getPublishing_year()}"> </span></td>
+        <td><input id="publishing_year" name="publishing_year" form="form"> </td>
     </tr>
     <tr>
         <td>Количество страниц</td>
-        <td><span th:text="${book.getNum_of_pages()}"> </span></td>
+        <td><input id="num_of_pages" name="num_of_pages" form="form"> </td>
     </tr>
     <tr>
         <td>Тип обложки</td>
-        <td><span th:text="${book.getCover_type()}"> </span></td>
+        <td><input id="cover_type" name="cover_type" form="form"> </td>
     </tr>
     <tr>
         <td>Цена</td>
-        <td><span th:text="${book.getPrice()}"> </span></td>
+        <td><input id="price" name="price" form="form"> </td>
     </tr>
     <tr>
         <td>Количество</td>
-        <td><span th:text="${book.getAmount()}"> </span></td>
+        <td><input id="amount" name="amount" form="form"> </td>
     </tr>
 
     </tbody>
 </table>
+
 <div>
-    <a class="btn btn-primary" id="add_book_to_shopping_cart_button" th:href="'/createShoppingCart?book_id=' + ${book.getBook_id()}" role="button">В корзину</a>
+    <button type="submit" class="btn btn-primary" id="add_book_button" form="form">Добавить</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>

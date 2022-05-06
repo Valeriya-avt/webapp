@@ -8,24 +8,21 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <title>Books page</title>
+  <title>Personal page</title>
 </head>
-
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" id="books_bookstore_button" href="/index">Bookstore</a>
+  <a class="navbar-brand" id="personal_page_bookstore_button" href="/index">Bookstore</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/books">Главная <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/logged">Главная <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="books_log_in_button" href="/logIn" role="button">Войти</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" id="books_registration_button" href="/registration" role="button">Зарегистрироваться</a>
+        <a id="logout_button" href="/logOut" class="nav-link" role="button">Выйти</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/search" method="post">
@@ -35,32 +32,39 @@
   </div>
 </nav>
 
-<table class="table table-bordered " style="margin: 0 auto; border: solid 2px blue;">
-  <thead class="thead-ligth">
-  <tr>
-    <th scope="col"> Название </th>
-    <th scope="col"> Автор </th>
-    <th scope="col"> Цена </th>
-  </tr>
-  </thead>
+<table class="table table-bordered" id="client_table" style="margin: 0 auto; border: solid 2px blue; background-color: hsl(240, 100%, 98%)">
   <tbody>
-  <tr th:if="${books.isEmpty()}">
-    <td colspan="8"> Каталог пуст </td>
+  <tr>
+    <td>Имя</td>
+    <td><span th:text="${client.getName()}"> </span></td>
   </tr>
-  <tr th:each="book : ${books}">
-    <form>
-      <input type="hidden" name="books_book_id" th:value="${book.getBook_id()}"/>
-    </form>
-    <td> <a th:href="'/book?book_id=' + ${book.getBook_id()}"> <span th:text="${book.getTitle()}"> </span> </a></td>
-    <td><span th:text="${book.getAuthors()}"> </span></td>
-    <td><span th:text="${book.getPrice()}"> </span></td>
+  <tr>
+    <td>Фамилия</td>
+    <td><span th:text="${client.getSurname()}"> </span></td>
   </tr>
+  <tr>
+    <td>Адрес</td>
+    <td><span th:text="${client.getAddress()}"> </span></td>
+  </tr>
+  <tr>
+    <td>Номер телефона</td>
+    <td><span th:text="${client.getPhone_number()}"> </span></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><span th:text="${client.getEmail()}"> </span></td>
+  </tr>
+  <tr>
+    <td>Логин</td>
+    <td><span th:text="${client.getClient_login()}"> </span></td>
+  </tr>
+
   </tbody>
 </table>
+<a id="client_edit_button" th:href="'/editClient?client_id=' + ${client.getClient_id()}" class="btn btn-primary" role="button">Изменить</a>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
 </body>
 </html>

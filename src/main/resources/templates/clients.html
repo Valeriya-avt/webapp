@@ -1,5 +1,4 @@
 <!DOCTYPE HTML>
-<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <!-- Required meta tags -->
@@ -9,11 +8,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Update book page</title>
+    <title>Client list page</title>
 </head>
-<body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" id="update_book_bookstore_button" href="/index">Bookstore</a>
+    <a class="navbar-brand" id="client_list_bookstore_button" href="/index">Bookstore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +31,7 @@
 <!--                <a id="admin_add_book_button" href="/createBook" class="nav-link" role="button">Добавить книгу</a>-->
 <!--            </li>-->
 <!--            <li class="nav-item">-->
-<!--                <a id="admin_add_client_button" href="/addClient" class="nav-link" role="button">Создать пользователя</a>-->
+<!--                <a id="admin_add_client_button" href="/addClient" class="nav-link" role="button">Добавить пользователя</a>-->
 <!--            </li>-->
             <li class="nav-item">
                 <a href="/logOut" class="nav-link" role="button">Выйти</a>
@@ -44,54 +43,35 @@
         </form>
     </div>
 </nav>
-<br>
 
-<form id="form" th:action="'/updateBook?book_id=' + ${book.getBook_id()}" method="post"></form>
-<table class="table table-bordered" style="margin: 0 auto; border: solid 2px blue; background-color: hsl(240, 100%, 98%)">
+<table class="table table-bordered" id="clients_table" style="margin: 0 auto; border: solid 2px blue;">
+    <thead class="thead-ligth">
+    <tr>
+        <th scope="col"> Имя </th>
+        <th scope="col"> Фамилия </th>
+        <th scope="col"> Адрес </th>
+        <th scope="col"> Номер телефона </th>
+        <th scope="col"> Email </th>
+        <th scope="col"> Логин </th>
+    </tr>
+    </thead>
     <tbody>
-    <tr>
-        <td>Название</td>
-        <td><input id="title" name="title" th:value="${book.getTitle()}" form="form"> </td>
+    <tr th:if="${clients.isEmpty()}">
+        <td colspan="8"> Список клиентов пуст </td>
     </tr>
-    <tr>
-        <td>Автор</td>
-        <td><input id="authors" name="authors" th:value="${book.getAuthors()}" form="form"> </td>
+    <tr th:each="client : ${clients}">
+        <form>
+            <input type="hidden" name="index_book_id" th:value="${client.getClient_id()}"/>
+        </form>
+        <td> <a th:href="'/logged/personal?client_id=' + ${client.getClient_id()}"> <span th:text="${client.getClient_id()}"> </span> </a></td>
+        <td><span th:text="${client.getName()}"> </span></td>
+        <td><span th:text="${client.getSurname()}"> </span></td>
+        <td><span th:text="${client.getPhone_number()}"> </span></td>
+        <td><span th:text="${client.getEmail()}"> </span></td>
+        <td><span th:text="${client.getClient_login()}"> </span></td>
     </tr>
-    <tr>
-        <td>Жанр</td>
-        <td><input id="genre" name="genre" th:value="${book.getGenre()}" form="form"> </td>
-    </tr>
-    <tr>
-        <td>Издательство</td>
-        <td><input id="publishing_house" name="publishing_house" th:value="${book.getPublishing_house()}" form="form"> </td>
-    </tr>
-    <tr>
-        <td>Год издания</td>
-        <td><input id="publishing_year" name="publishing_year" th:value="${book.getPublishing_year()}" form="form"> </td>
-    </tr>
-    <tr>
-        <td>Количество страниц</td>
-        <td><input id="num_of_pages" name="num_of_pages" th:value="${book.getNum_of_pages()}" form="form"> </td>
-    </tr>
-    <tr>
-        <td>Тип обложки</td>
-        <td><input id="cover_type" name="cover_type" th:value="${book.getCover_type()}" form="form"> </td>
-    </tr>
-    <tr>
-        <td>Цена</td>
-        <td><input id="price" name="price" th:value="${book.getPrice()}" form="form"> </td>
-    </tr>
-    <tr>
-        <td>Количество</td>
-        <td><input id="amount" name="amount" th:value="${book.getAmount()}" form="form"> </td>
-    </tr>
-
     </tbody>
 </table>
-
-<div>
-    <button type="submit" class="btn btn-primary" id="save_update_book_button" form="form">Сохранить</button>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

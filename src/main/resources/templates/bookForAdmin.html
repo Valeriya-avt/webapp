@@ -8,70 +8,86 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Bookstore</title>
+    <title>Book for admin page</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Bookstore</a>
+    <a class="navbar-brand" id="book_for_admin_bookstore_button" href="/index">Bookstore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+                <a id="admin_root_page_button" href="/logged" class="nav-link" role="button">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a href="/orders" class="nav-link" role="button">Заказы</a>
+            </li>
+            <li class="nav-item">
+                <a href="/clients" class="nav-link" role="button">Пользователи</a>
+            </li>
+            <li class="nav-item">
+                <a id="admin_add_book_button" href="/addBook" class="nav-link" role="button">Добавить книгу</a>
+            </li>
+            <li class="nav-item">
+                <a id="admin_add_client_button" href="/addClient" class="nav-link" role="button">Добавить пользователя</a>
+            </li>
+            <li class="nav-item">
+                <a href="/logOut" class="nav-link" role="button">Выйти</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Поиск">
+        <form class="form-inline my-2 my-lg-0" action="/search" method="post">
+            <input class="form-control mr-sm-2" type="search" name="title" placeholder="Поиск" aria-label="Поиск">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
         </form>
     </div>
 </nav>
-<table id="bookForAdminTable" class="table table-bordered " style="width: auto; margin: auto; border: 1.09px solid blue;  text-align: center; background-color: hsl(240,100%,98%);">
+    <table class="table table-bordered" id="bookForAdminTable" style="margin: 0 auto; border: solid 2px blue; background-color: hsl(240, 100%, 98%)">
+
     <tbody>
     <tr>
         <td>Название</td>
-        <td><span th:text="${book.getTitle()}"> </span></td>
+        <td><span id="title" th:text="${book.getTitle()}"> </span></td>
     </tr>
     <tr>
         <td>Автор</td>
-        <td><span th:text="${book.getAuthors()}"> </span></td>
+        <td><span id="authors" th:text="${book.getAuthors()}"> </span></td>
     </tr>
     <tr>
         <td>Жанр</td>
-        <td><span th:text="${book.getGenre()}"> </span></td>
+        <td><span id="genre" th:text="${book.getGenre()}"> </span></td>
     </tr>
     <tr>
         <td>Издательство</td>
-        <td><span th:text="${book.getPublishing_house()}"> </span></td>
+        <td><span id="publishing_house" th:text="${book.getPublishing_house()}"> </span></td>
     </tr>
     <tr>
         <td>Год издания</td>
-        <td><span th:text="${book.getPublishing_year()}"> </span></td>
+        <td><span id="publishing_year" th:text="${book.getPublishing_year()}"> </span></td>
     </tr>
     <tr>
         <td>Количество страниц</td>
-        <td><span th:text="${book.getNum_of_pages()}"> </span></td>
+        <td><span id="num_of_pages" th:text="${book.getNum_of_pages()}"> </span></td>
     </tr>
     <tr>
         <td>Тип обложки</td>
-        <td><span th:text="${book.getCover_type()}"> </span></td>
+        <td><span id="cover_type" th:text="${book.getCover_type()}"> </span></td>
     </tr>
     <tr>
         <td>Цена</td>
-        <td><span th:text="${book.getPrice()}"> </span></td>
+        <td><span id="price" th:text="${book.getPrice()}"> </span></td>
     </tr>
     <tr>
         <td>Количество</td>
-        <td><span th:text="${book.getAmount()}"> </span></td>
+        <td><span id="amount" th:text="${book.getAmount()}"> </span></td>
     </tr>
 
     </tbody>
 </table>
-<div class="col-md-5 mx-auto">
-    <a id="book_admin_edit_button" th:href="'/editBook?book_id=' + ${book.getBook_id()}" class="btn btn-outline-success my-2 my-sm-0" role="button">Изменить</a>
-    <a id="book_admin_delete_button" class="btn btn-outline-success my-2 my-sm-0" role="button">Удалить</a>
+<div>
+    <a id="update_book_button" th:href="'/editBook?book_id=' + ${book.getBook_id()}" class="btn btn-primary" role="button">Изменить</a>
+    <a th:href="'/deleteBook?book_id=' + ${book.getBook_id()}" class="btn btn-primary" id="delete_book_button" role="button">Удалить</a>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
